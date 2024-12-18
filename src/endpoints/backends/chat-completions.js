@@ -282,7 +282,7 @@ async function sendMakerSuiteRequest(request, response) {
             model.includes('gemini-1.5-flash') ||
             model.includes('gemini-1.5-pro') ||
             model.startsWith('gemini-exp')
-          ) && request.body.use_makersuite_sysprompt;
+        ) && request.body.use_makersuite_sysprompt;
 
         const should_use_google_search_as_a_tool = model.startsWith('gemini-2.0') && request.body.use_google_search_as_a_tool;
 
@@ -298,7 +298,7 @@ async function sendMakerSuiteRequest(request, response) {
         }
 
         if (should_use_google_search_as_a_tool) {
-            body.tools = [{"google_search": {}}];
+            body.tools = [{ 'google_search': { } }];
         }
 
         return body;
